@@ -1,5 +1,8 @@
 #! /bin/bash
 
+chown -R mysql:mysql /var/lib/mysql
+chmod +w /var/lub/mysql -R
+
 # Run db server
 service mysql start
 
