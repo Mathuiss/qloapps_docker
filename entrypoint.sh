@@ -1,6 +1,6 @@
 #! /bin/bash
 
-chown -R mysql:mysql /var/lib/mysql
+chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 chmod +w /var/lub/mysql -R
 
 # Run db server
