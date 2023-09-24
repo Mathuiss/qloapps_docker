@@ -1,11 +1,15 @@
 #! /bin/bash
 
+
+# Run db server
+service mysql start
+service mysql stop
+
 chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 for file in $(find /var/lib/mysql -type f); do
     touch $file
 done
 
-# Run db server
 service mysql start
 
 if [ $? -ne 0 ]; then
