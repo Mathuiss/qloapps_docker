@@ -41,6 +41,7 @@ RUN apt-get update \
 # COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./entrypoint.sh /root/entrypoint.sh
 COPY credentials.sh /etc/credentials.sh
+VOLUME /var/lib/mysql
 RUN chmod a+x /etc/credentials.sh
 WORKDIR /home/${user}/www/hotelcommerce
 EXPOSE 3306 80 443

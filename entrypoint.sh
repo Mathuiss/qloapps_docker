@@ -1,6 +1,7 @@
 #! /bin/bash
 
 chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
+find /var/lib/mysql -type f -exec touch {}
 
 # Run db server
 service mysql start
