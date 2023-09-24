@@ -34,13 +34,14 @@ RUN apt-get update \
                 Require all granted  \n\
                 AllowOverride all \n\
                 </Directory>  ' >> /etc/apache2/apache2.conf \
-    && sed -i "s@/var/www/html@/home/${user}/www/hotelcommerce@g" /etc/apache2/sites-enabled/000-default.conf \
+    && sed -i "s@/var/www/html@/home/${user}/www/hotelcommerce@g" /etc/apache2/sites-enabled/000-default.conf
 ##install supervisor and setup supervisord.conf file
-    && apt-get install -y supervisor \
-    && mkdir -p /var/log/supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# && apt-get install -y supervisor \
+# && mkdir -p /var/log/supervisor
+# COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./entrypoint.sh /root/entrypoint.sh
 COPY credentials.sh /etc/credentials.sh
 RUN chmod a+x /etc/credentials.sh
 WORKDIR /home/${user}/www/hotelcommerce
 EXPOSE 3306 80 443
-CMD ["/usr/bin/supervisord"]
+ENTRYPOINT /root/entrypoint.sh
