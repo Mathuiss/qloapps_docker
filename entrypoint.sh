@@ -3,6 +3,11 @@
 # Run db server
 service mysql start
 
+if [ $? -ne 0 ]; then
+    cat /var/log/mysql/error.log
+    exit 1
+fi
+
 # Start web server
 service apache2 start
 
@@ -11,4 +16,3 @@ service apache2 start
 
 # Log the errors of the container
 tail -f /var/log/apache2/*.log
-
