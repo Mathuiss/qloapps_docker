@@ -22,5 +22,5 @@ else
 mysqladmin -u root password $MYSQL_ROOT_PASSWORD
 mysql -u root -p$MYSQL_ROOT_PASSWORD -e "create database $MYSQL_DATABASE;"
 mysql -u root -p$MYSQL_ROOT_PASSWORD -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
-supervisorctl stop update_credentials && supervisorctl remove update_credentials
+# supervisorctl stop update_credentials && supervisorctl remove update_credentials
 fi
