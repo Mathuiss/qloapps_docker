@@ -5,7 +5,7 @@
 mkdir /nonexistent
 mkdir -p /var/lib/mysql
 chmod -R 640 /var/lib/mysql
-mysql_install_db --user=mysql --ldata=/var/lib/mysql
+mysqld --initialize --user=mysql --ldata=/var/lib/mysql
 
 # Create the error log
 touch /var/log/mysql/error.log
