@@ -1,20 +1,24 @@
 #! /bin/bash
 
 
-# Run db server
-service mysql start
-service mysql stop
+# Create datadir for mysql
+mkdir -p /var/lib/mysql
+chmod -R 640 /var/lib/mysql
+mysql_install_db --user=mysql --ldata=/var/lib/mysql
 
-chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
-for file in $(find /var/lib/mysql -type f); do
-    touch $file
-done
+# Create the error log
+touch /var/log/mysql/error.log
+chown mysql:mysql /var/log/mysql/error.log 
+chmod 640 /var/log/mysql/error.log
 
-service mysql start
+# Start db
+service mariadb start
+sync
 
-if [ $? -ne 0 ]; then
-    cat /var/log/mysql/error.log
-    exit 1
+if service mariadb status | grep -q 'MariaDB is stopped'
+  then echo "MariaDB failed to start. Killing container..."
+  cat /var/log/mysql/error.log
+  exit 1
 fi
 
 # Start web server
