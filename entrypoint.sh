@@ -2,6 +2,7 @@
 
 
 # Create datadir for mysql
+mkdir /nonexistent
 mkdir -p /var/lib/mysql
 chmod -R 640 /var/lib/mysql
 mysql_install_db --user=mysql --ldata=/var/lib/mysql
