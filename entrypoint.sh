@@ -12,10 +12,10 @@ chown mysql:mysql /var/log/mysql/error.log
 chmod 640 /var/log/mysql/error.log
 
 # Start db
-service mariadb start
+service mysql start
 sync
 
-if service mariadb status | grep -q 'MariaDB is stopped'
+if service mysql status | grep -q 'MariaDB is stopped'
   then echo "MariaDB failed to start. Killing container..."
   cat /var/log/mysql/error.log
   exit 1
