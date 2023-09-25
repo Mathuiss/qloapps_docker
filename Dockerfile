@@ -1,4 +1,5 @@
-FROM ubuntu:18.04
+# FROM ubuntu:18.04
+FROM ubuntu:20.04
 LABEL maintainer="Qloapps Support <support@qloapps.com>"
 ARG user=qloapps
 ##Php file configuration with php version and mysql version
