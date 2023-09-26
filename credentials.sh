@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 ##set user password
-user=qloapps
+user=hoteldemo
 echo -e "$USER_PASSWORD\n$USER_PASSWORD" | passwd $user
 ##Check for database connectivity
 database_connectivity_check=no
