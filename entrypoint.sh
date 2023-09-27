@@ -24,15 +24,16 @@ service apache2 start
 chmod -R 640 /var/lib/mysql
 
 # Set password
-mysql -u root <<-EOF
-CREATE DATABASE $MYSQL_DATABASE;
-CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '';
-GRANT USAGE ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';
-GRANT ALL privileges ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost';
+/etc/credentials.sh
+# mysql -u root <<-EOF
+# CREATE DATABASE $MYSQL_DATABASE;
+# CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '';
+# GRANT USAGE ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';
+# GRANT ALL privileges ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost';
 
-FLUSH PRIVILEGES;
-SHOW GRANTS FOR '$MYSQL_USER'@localhost;
-EOF
+# FLUSH PRIVILEGES;
+# SHOW GRANTS FOR '$MYSQL_USER'@localhost;
+# EOF
 
 # Log the errors of the container
 tail -f /var/log/apache2/*.log

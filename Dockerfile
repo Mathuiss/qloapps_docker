@@ -46,4 +46,8 @@ VOLUME /var/lib/mysql
 RUN chmod a+x /etc/credentials.sh
 WORKDIR /home/${user}/www/hotelcommerce
 EXPOSE 3306 80 443
+ENV MYSQL_USER qlo \
+    USER_PASSWORD=userpwd \
+    MYSQL_ROOT_PASSWORD=rootpwd \
+    MYSQL_DATABASE=db_qlo \
 ENTRYPOINT /root/entrypoint.sh
