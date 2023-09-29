@@ -10,7 +10,6 @@ RUN apt update && apt install -y \
 RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install soap && docker-php-ext-enable soap
-RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install zip
 
 
