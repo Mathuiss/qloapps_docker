@@ -19,3 +19,5 @@ RUN cd /tmp && git clone https://github.com/webkul/hotelcommerce && \
     mv hotelcommerce/* /var/www/html/ && \
     chown -R www-data:www-data /var/www/html/
     # chmod 644 -R /var/www/html/
+
+COPY .htaccess /var/www/html/.htaccess
