@@ -5,7 +5,7 @@ RUN apt update && apt install -y \
     git \
     libxml2-dev \
     libpng-dev \
-    php-zip
+    libzip-dev
 
 # Install php extentions
 RUN docker-php-ext-install pdo pdo_mysql
