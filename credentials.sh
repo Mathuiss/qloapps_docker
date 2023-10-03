@@ -15,12 +15,12 @@ fi
 var=$((var+1))
 done
 ##Check for database
-database_availability_check=`mysqlshow --user=root | grep -ow "$MYSQL_DATABASE"`
-if [ "$database_availability_check" == "$MYSQL_DATABASE" ]; then
+database_availability_check=`mysqlshow --user=root | grep -ow "$MARIADB_DATABASE"`
+if [ "$database_availability_check" == "$MARIADB_DATABASE" ]; then
 exit 1
 else
-mysqladmin -u root password $MYSQL_ROOT_PASSWORD
-mysql -u root -p$MYSQL_ROOT_PASSWORD -e "create database $MYSQL_DATABASE;"
-mysql -u root -p$MYSQL_ROOT_PASSWORD -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD';"
+mysqladmin -u root password $MARIADB_ROOT_PASSWORD
+mysql -u root -p$MARIADB_ROOT_PASSWORD -e "create database $MARIADB_DATABASE;"
+mysql -u root -p$MARIADB_ROOT_PASSWORD -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH MARIADB_native_password BY '$MARIADB_ROOT_PASSWORD';"
 # supervisorctl stop update_credentials && supervisorctl remove update_credentials
 fi
