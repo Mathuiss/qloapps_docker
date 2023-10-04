@@ -24,7 +24,7 @@ service apache2 start
 chmod -R 640 /var/lib/mysql
 
 # Set password
-/etc/credentials.sh
+# /etc/credentials.sh
 # mysql -u root <<-EOF
 # CREATE DATABASE $MYSQL_DATABASE;
 # CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '';
