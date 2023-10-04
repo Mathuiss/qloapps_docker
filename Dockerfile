@@ -37,7 +37,7 @@ RUN apt-get update \
 
 COPY ./entrypoint.sh /root/entrypoint.sh
 WORKDIR /home/${user}/www/hotelcommerce
-EXPOSE 3306 80 443
+EXPOSE 80 443
 ENV MYSQL_USER qlo \
     USER_PASSWORD=userpwd \
     MYSQL_ROOT_PASSWORD=rootpwd \
