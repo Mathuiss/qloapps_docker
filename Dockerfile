@@ -1,4 +1,4 @@
-FROM arm64v8/php:7.4-apache
+FROM php:7.4-apache
 RUN apt update && apt install -y \
     bash \
     nano \
