@@ -1,5 +1,5 @@
-FROM ubuntu:18.04
-# FROM ubuntu:20.04
+# FROM ubuntu:18.04
+FROM ubuntu:20.04
 ARG user=qloapps
 ##Php file configuration with php version and mysql version
 ENV php_version=7.2 file_uploads=On allow_url_fopen=On memory_limit=512M max_execution_time=240 upload_max_filesize=200M post_max_size=400M max_input_vars=1500
@@ -41,5 +41,5 @@ EXPOSE 80 443
 ENV MYSQL_USER qlo \
     USER_PASSWORD=userpwd \
     MYSQL_ROOT_PASSWORD=rootpwd \
-    MYSQL_DATABASE=db_qlo \
+    MYSQL_DATABASE=db_qlo
 ENTRYPOINT /root/entrypoint.sh
